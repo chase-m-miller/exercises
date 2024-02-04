@@ -44,7 +44,7 @@ int main(void)
 	printf("%i + %i = %i\n", a, b, (a + b));
 	printf("%i - %i = %i\n", a, b, (a - b));
 	printf("%i * %i = %i\n", a, b, (a * b));
-	printf("%i / %i = %i\n", a, b, (a / b));
+	printf("%i / %i = %.2f\n", a, b, ((double) a / (double) b));
 
 	return 0;
 }
