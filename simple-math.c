@@ -32,7 +32,7 @@ int main(void)
 
 	printf("What is the second number? ");
 	fgets(b_str, MAX_DIGITS, stdin);
-	if (isnum(a_str) != 0)
+	if (isnum(b_str) != 0)
 	{
 		printf("Please enter numbers only.\n");
 		return 1;
