@@ -7,8 +7,6 @@ int main(void)
 	char width_in[ARR_MAX];
 	float length;
 	float width;
-	float area_sqft;
-	float area_sqm;
 
 	printf("What is the length of the room in feet? ");
 	fgets(length_in, ARR_MAX, stdin);
