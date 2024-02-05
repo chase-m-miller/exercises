@@ -17,9 +17,9 @@ int main(void)
 	width = atof(width_in);
 
 	printf("You entered dimensions of %.0f feet by %.0f feet.\n", length, width);
-	printf("The area is\n");
-	printf("%.0f square feet\n", length * width);
-	printf("%.3f square meters\n", (length * width) * 0.09290304);
+	printf("The area is:\n");
+	printf("%.0f square feet.\n", length * width);
+	printf("%.3f square meters.\n", (length * width) * 0.09290304);
 
 	return 0;
 }
