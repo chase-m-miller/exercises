@@ -30,7 +30,7 @@ int main(void)
 	end_worth = (double) principal * (1.0 + ((double) roi * (double) years));
 	end_worth = (ceil(end_worth * 100.0)) / 100.0;
 
-	printf("After %i years at %.1f\%, the investment will be worth $%.2f.", years, roi, end_worth);
+	printf("After %i years at %.1f\%, the investment will be worth $%.2f.", years, roi * 100.0, end_worth);
 
 	return 0;
 }
