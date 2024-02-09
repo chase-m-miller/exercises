@@ -25,7 +25,7 @@ int main(void)
 
 	if (strcmp(state, "WI\n") != 0)
 	{
-		printf("The total is %.2f\n", subtotal);
+		printf("The total is $%.2f\n", subtotal);
 		return 0;
 	}
 
