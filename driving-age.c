@@ -11,8 +11,8 @@ int main(void)
 	fgets(input, STR_MAX, stdin);
 	age = atoi(input);
 
-	char *answer = (age > 15) ? "You are old enough to drive.\n" : "You are not old enough to drive.\n";
-	printf("%s", answer);
+	char *answer = (age > 15) ? "You are old enough to drive." : "You are not old enough to drive.";
+	printf("%s\n", answer);
 
 	return 0;
 }
