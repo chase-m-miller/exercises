@@ -28,6 +28,20 @@ int main(void)
 	fgets(sex, STR_MAX, stdin);
 	sex[strcspn(sex, "\n")] = 0;
 
+	if (strcasecmp(sex, "male") == 0)
+	{
+		alcohol_distribution_ratio = 0.73;
+	}
+	else if (strcasecmp(sex, "female") == 0)
+	{
+		alcohol_distribution_ratio = 0.66;
+	}
+	else
+	{
+		printf("Please enter male or female.\n");
+		return 0;
+	}
+
 	printf("How many pounds do you weigh? ");
 	fgets(weight_input, STR_MAX, stdin);
 	weight_lbs = atof(weight_input);
@@ -49,14 +63,6 @@ int main(void)
 	time_since_last = atof(time_since_input);
 
 
-	if (strcasecmp(sex, "male") == 0)
-	{
-		alcohol_distribution_ratio = 0.73;
-	}
-	else if (strcasecmp(sex, "female") == 0)
-	{
-		alcohol_distribution_ratio = 0.66;
-	}
 
 	total_alcohol = num_drinks * abv_of_drinks * volume_of_drink;
 
