@@ -31,7 +31,8 @@ int main(void) {
 		if (strcasecmp(wi_county, "Eau Claire\n") == 0)
 		{
 			tax_rate = tax_rate + 0.005;
-		} else if (strcasecmp(wi_county, "Dunn\n") == 0)
+		}
+		else if (strcasecmp(wi_county, "Dunn\n") == 0)
 		{
 			tax_rate = tax_rate + 0.004;
 		}
