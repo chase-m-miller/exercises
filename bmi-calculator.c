@@ -21,6 +21,8 @@ int main(void)
 
 	bmi = ((double) weight / (double) (height * height)) * 703.0;
 
+	printf("Your BMI is %.1f.\n", bmi);
+
 	if (bmi >= 18.5 && bmi <= 25) {
 		printf("You are within the ideal weight range.\n");
 	} else if (bmi > 25) {
