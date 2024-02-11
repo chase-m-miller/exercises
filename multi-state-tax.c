@@ -23,7 +23,7 @@ int main(void) {
 	printf("What is the state abbreviation? ");
 	fgets(state, STR_MAX, stdin);
 
-	if (strcmp(state, "WI\n") == 0)
+	if (strcasecmp(state, "WI\n") == 0)
 	{
 		printf("What county do you reside in? ");
 		fgets(wi_county, STR_MAX, stdin);
