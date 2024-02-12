@@ -1,5 +1,4 @@
 #include <stdio.h>
-#define MAXLINE 100
 
 void does_car_have_fuel_injection(void);
 void does_engine_start_then_die(void);
@@ -8,11 +7,13 @@ void is_car_clicking(void);
 void is_battery_corroded(void);
 void is_car_silent(void);
 
-char prompt(char prompt_str[MAXLINE]) {
-	char input_buffer[3];
+char prompt(char prompt_str[]) {
+	char c, answer;
 	printf("%s ", prompt_str);
-	fgets(input_buffer, 3, stdin);
-	return input_buffer[0];
+	while ((c = getchar()) != '\n') {
+		answer = c;
+	}
+	return answer;
 }
 
 void is_car_silent(void) {
