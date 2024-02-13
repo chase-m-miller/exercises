@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <string.h>
-#define    MAXLINE 22
-#define   VERY_WEAK 1
-#define        WEAK 2
-#define      STRONG 3
-#define VERY_STRONG 4
+
+#define   VERY_WEAK   1
+#define        WEAK   2
+#define      STRONG   3
+#define VERY_STRONG   4
+
+#define     MAXLINE  22
 
 int password_validator(char password[], int password_len) {
 	int password_strength = 0;
