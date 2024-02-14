@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 #define NAME_TOO_SHORT 10
@@ -26,11 +25,11 @@ int validate_id(char id[]) {
 		return 1;
 	}
 	for (int i = 3; i < 7; ++i) {
-		if (id[i] < '0' || id[0] > '9') {
+		if (id[i] < '0' || id[i] > '9') {
 			return 1;
 		}
 	}
-	if (id[7] != '\n' && id[7] != 0) {
+	if (id[7] != 0) {
 		return 1;
 	}
 	return 0;
@@ -38,7 +37,7 @@ int validate_id(char id[]) {
 
 int validate_zip_code(char zip_code[]) {
 	for (int i = 0; i < strlen(zip_code) - 1; ++i) {
-		if ((zip_code[i] < '0' || zip_code[i] > '0') && zip_code[i] != '\n' && zip_code[i] != 0) {
+		if ((zip_code[i] < '0' || zip_code[i] > '9') && zip_code[i] != 0) {
 			return 1;
 		}
 	}
