@@ -21,8 +21,10 @@ int main(void) {
 	resting_hr = atoi(input_buffer);
 
 	printf("Resting pulse: %i\tAge: %i\n", resting_hr, age);
-	for (double intensity = .55; intensity <= .95; intensity += .05) {
-		printf("%.0f\t%i bpm\n", intensity * 100.0, calculate_heart_rate(age, resting_hr, intensity));
+	printf("Intensity   | Heart Rate\n");
+	printf("------------|-----------\n");
+	for (double intensity = .55; intensity < .96; intensity += .05) {
+		printf("%.0f\%\t    |%7i bpm\n", intensity * 100.0, calculate_heart_rate(age, resting_hr, intensity));
 	}
 
 	return 0;
