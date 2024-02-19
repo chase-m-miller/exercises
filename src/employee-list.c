@@ -4,7 +4,8 @@
 #define MAXLINE 32
 
 int main(void) {
-	const int num_employees = 5;
+	int num_employees = 5;
+	int employees_removed = 0;
 	char *employees[num_employees];
 	char input_buffer[MAXLINE];
 
@@ -26,10 +27,11 @@ int main(void) {
 	for (int i = 0; i < num_employees; ++i) {
 		if (strcasecmp(input_buffer, employees[i]) == 0) {
 			employees[i] = 0;
+			++employees_removed;
 		}
 	}
 
-	printf("There are %i employees.\n", num_employees - 1);
+	printf("There are %i employees.\n", num_employees - employees_removed);
 	for (int i = 0; i < num_employees; ++i) {
 		if (employees[i]) {
 			printf("%s\n", employees[i]);
