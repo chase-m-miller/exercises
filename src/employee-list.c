@@ -26,7 +26,7 @@ int main(void) {
 
 	for (int i = 0; i < num_employees; ++i) {
 		if (strcasecmp(input_buffer, employees[i]) == 0) {
-			employees[i] = 0;
+			employees[i] = NULL;
 			++employees_removed;
 		}
 	}
