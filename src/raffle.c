@@ -8,7 +8,7 @@ int main(void) {
 	int entry_index = 0;
 	int entry_limit = 5;
 	char input_buffer[MAXLINE];
-	char **raffle_entries = malloc(MAXLINE * entry_limit * sizeof(char *));
+	char **raffle_entries = malloc(entry_limit * sizeof(char *));
 
 	// while (1) {
 	//	if (entry_index + 1 == entry_limit) {
@@ -21,7 +21,7 @@ int main(void) {
 	
 	for (int i = 0; i < entry_limit; ++i) {
 		fgets(input_buffer, MAXLINE, stdin);
-		strcpy(raffle_entries[i], input_buffer);
+		raffle_entries[i] = input_buffer;
 	}
 
 	for (int i = 0; i < entry_limit; ++i) {
