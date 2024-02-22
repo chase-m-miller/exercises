@@ -5,27 +5,28 @@
 #define MAXLINE 52
 
 int main(void) {
-	int entry_index = 0;
-	int entry_limit = 5;
-	char input_buffer[MAXLINE];
-	char **raffle_entries = malloc(entry_limit * sizeof(char *));
+	int index = 0;
+	int size = 5;
+	char *string = NULL;
+	char **raffle_entries = NULL;
 
 	// while (1) {
-	//	if (entry_index + 1 == entry_limit) {
-	//		entry_limit += 5;
-	//		raffle_entries = realloc(raffle_entries, entry_limit * sizeof(char *));
+	//	if (entry_index + 1 == index) {
+	//		index += 5;
+	//		raffle_entries = realloc(raffle_entries, index * sizeof(char *));
 	//	}
 	//	printf("Enter a name: ");
-	//	fgets(input_buffer, MAXLINE, stdin);
+	//	fgets(string, MAXLINE, stdin);
 	// }
 	
-	for (int i = 0; i < entry_limit; ++i) {
-		fgets(input_buffer, MAXLINE, stdin);
-		raffle_entries[i] = input_buffer;
+	for (int index = 0; index < size; ++index) {
+		fgets(string, MAXLINE, stdin);
+		raffle_entries = realloc(raffle_entries, strlen(string) + 2);
+		strcpy(raffle_entries[index], string);
 	}
 
-	for (int i = 0; i < entry_limit; ++i) {
-		printf("%s\n", raffle_entries[i]);
+	for (int index = 0; index < size; ++index) {
+		printf("%s\n", raffle_entries[index]);
 	}
 
 	return 0;
