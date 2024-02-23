@@ -1,20 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAXLINE 32
 
 int main(void) {
-	int num_of_strings = 6;
+	int num_of_strings = 1;
+	char input_buffer[MAXLINE];
 	char **strings = malloc(num_of_strings * sizeof(*strings));
-	strings[0] = "Peter";
-	strings[1] = "Paul";
-	strings[2] = "Joseph";
-	strings[3] = "Spongebob";
-	strings[4] = "Patrick";
 
-	for (int i = 0; strings[i]; ++i) {
-		printf("%s\n", strings[i]);
-	}
+	do {
+		strings = realloc(strings, ++num_of_strings * sizeof(*strings));
+		fgets(input_buffer, MAXLINE, stdin);
+		strcpy(strings[num_of_strings - 2], input_buffer);
+	} while (strings[num_of_strings - 2][0] != 0);
 
 	return 0;
 }
