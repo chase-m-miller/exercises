@@ -6,14 +6,19 @@
 
 int main(void) {
 	int num_of_strings = 1;
-	char input_buffer[MAXLINE];
-	char **strings = malloc(num_of_strings * sizeof(*strings));
+	char input_buffer[MAXLINE]; 
+	char **strings;
 
-	do {
-		strings = realloc(strings, ++num_of_strings * sizeof(*strings));
-		fgets(input_buffer, MAXLINE, stdin);
-		strcpy(strings[num_of_strings - 2], input_buffer);
-	} while (strings[num_of_strings - 2][0] != 0);
+	fgets(input_buffer, MAXLINE, stdin);
+	input_buffer[strcspn(input_buffer, "\n") + 1] = '\0';
+
+	printf("%s", input_buffer);
+
+	*strings = malloc(sizeof(*strings) * strlen(input_buffer));
+	printf("Made it here\n");
+	strcpy(strings[0], input_buffer);
+
+	printf("%s", strings[0]);
 
 	return 0;
 }
