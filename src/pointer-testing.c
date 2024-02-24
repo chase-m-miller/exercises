@@ -17,5 +17,9 @@ int main(void) {
 	printf("%s", strings[0]);
 	printf("%s", strings[1]);
 
+	free(strings[0]);
+	free(strings[1]);
+	free(strings);
+
 	return 0;
 }
