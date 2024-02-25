@@ -5,9 +5,7 @@
 #define MAXLINE 52
 
 int main(void) {
-	int index = 0;
-	int size = 5;
-	char *string = NULL;
+	int strings = 0;
 	char **raffle_entries = NULL;
 
 	// while (1) {
@@ -19,14 +17,14 @@ int main(void) {
 	//	fgets(string, MAXLINE, stdin);
 	// }
 	
-	for (int index = 0; index < size; ++index) {
-		fgets(string, MAXLINE, stdin);
-		raffle_entries = realloc(raffle_entries, strlen(string) + 2);
-		strcpy(raffle_entries[index], string);
-	}
+	do {
+		raffle_entries = realloc(raffle_entries, ++strings * sizeof(*raffle_entries));
+		raffle_entries[strings - 1] = malloc(sizeof(**raffle_entries) * MAXLINE);
+		fgets(raffle_entries[strings - 1], MAXLINE, stdin);
+	} while (raffle_entries[strings - 1][0] != '\n');
 
-	for (int index = 0; index < size; ++index) {
-		printf("%s\n", raffle_entries[index]);
+	for (int i = 0; i < strings; ++i) {
+		printf("%s", raffle_entries[i]);
 	}
 
 	return 0;
