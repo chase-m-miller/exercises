@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #define MAXLINE 52
 
 int main(void) {
-	int strings = 0;
+	int names = 0;
 	char **raffle_entries = NULL;
 
 	// while (1) {
@@ -18,18 +19,19 @@ int main(void) {
 	// }
 	
 	do {
-		raffle_entries = realloc(raffle_entries, ++strings * sizeof(*raffle_entries));
-		raffle_entries[strings - 1] = malloc(sizeof(**raffle_entries) * MAXLINE);
+		raffle_entries = realloc(raffle_entries, ++names * sizeof(*raffle_entries));
+		raffle_entries[names - 1] = malloc(sizeof(**raffle_entries) * MAXLINE);
 		printf("Enter a name: ");
-		fgets(raffle_entries[strings - 1], MAXLINE, stdin);
-	} while (raffle_entries[strings - 1][0] != '\n');
+		fgets(raffle_entries[names - 1], MAXLINE, stdin);
+	} while (raffle_entries[names - 1][0] != '\n');
 
-	// free the final newline and correct the 'strings' value
-	free(raffle_entries[--strings]);
+	// free the final newline and correct the 'names' value
+	free(raffle_entries[--names]);
 
-	for (int i = 0; i < strings; ++i) {
-		printf("%s", raffle_entries[i]);
-	}
+	srand(time(NULL));
+	int winner = rand() % names;
+
+	printf("The winner is %s!", raffle_entries[winner]);
 
 	return 0;
 }
