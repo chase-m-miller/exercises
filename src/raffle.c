@@ -16,13 +16,17 @@ int main(void) {
 		fgets(raffle_entries[names - 1], MAXLINE, stdin);
 	} while (raffle_entries[names - 1][0] != '\n');
 
+	for (int i = 0; i < names; ++i) {
+		raffle_entries[i][strcspn(raffle_entries[i], "\n")] = '\0';
+	}
+
 	// free the final newline and correct the 'names' value
 	free(raffle_entries[--names]);
 
 	srand(time(NULL));
 	int winner = rand() % names;
 
-	printf("The winner is %s!", raffle_entries[winner]);
+	printf("The winner is %s!\n", raffle_entries[winner]);
 
 	return 0;
 }
