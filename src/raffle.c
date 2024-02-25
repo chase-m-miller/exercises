@@ -23,6 +23,9 @@ int main(void) {
 		fgets(raffle_entries[strings - 1], MAXLINE, stdin);
 	} while (raffle_entries[strings - 1][0] != '\n');
 
+	// free the final newline and correct the 'strings' value
+	free(raffle_entries[--strings]);
+
 	for (int i = 0; i < strings; ++i) {
 		printf("%s", raffle_entries[i]);
 	}
