@@ -28,5 +28,10 @@ int main(void) {
 
 	printf("The winner is %s!\n", raffle_entries[winner]);
 
+	free(raffle_entries);
+	for (int i = 0; i < names; ++i) {
+		free(raffle_entries[i]);
+	}
+
 	return 0;
 }
