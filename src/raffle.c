@@ -20,6 +20,7 @@ int main(void) {
 	do {
 		raffle_entries = realloc(raffle_entries, ++strings * sizeof(*raffle_entries));
 		raffle_entries[strings - 1] = malloc(sizeof(**raffle_entries) * MAXLINE);
+		printf("Enter a name: ");
 		fgets(raffle_entries[strings - 1], MAXLINE, stdin);
 	} while (raffle_entries[strings - 1][0] != '\n');
 
