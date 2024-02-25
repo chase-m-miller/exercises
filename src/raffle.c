@@ -9,15 +9,6 @@ int main(void) {
 	int names = 0;
 	char **raffle_entries = NULL;
 
-	// while (1) {
-	//	if (entry_index + 1 == index) {
-	//		index += 5;
-	//		raffle_entries = realloc(raffle_entries, index * sizeof(char *));
-	//	}
-	//	printf("Enter a name: ");
-	//	fgets(string, MAXLINE, stdin);
-	// }
-	
 	do {
 		raffle_entries = realloc(raffle_entries, ++names * sizeof(*raffle_entries));
 		raffle_entries[names - 1] = malloc(sizeof(**raffle_entries) * MAXLINE);
