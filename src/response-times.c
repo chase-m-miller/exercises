@@ -15,6 +15,16 @@ double calculate_mean(double response_times[], int num_entries) {
 	return total / num_entries;
 }
 
+double calculate_std_dev(double response_times[], int num_entries) {
+	double mean = calculate_mean(response_times, num_entries);
+	double diffs_from_mean_squared[num_entries];
+
+	for (int i = 0; i < num_entries; ++i) {
+		diffs_from_mean_squared[i] = (response_times[i] - mean) * (response_times[i] - mean);
+	}
+
+	return sqrt(calculate_mean(diffs_from_mean_squared, num_entries));
+}
 
 int main(void) {
 	int response_times[ARR_MAX];
