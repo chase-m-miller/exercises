@@ -71,6 +71,7 @@ int main(void) {
 	for (int i = 0; i < num_entries; ++i) {
 		printf("%i ", response_times[i]);
 	}
+	printf("\n");
 
 	return 0;
 }
