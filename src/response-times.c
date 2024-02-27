@@ -53,18 +53,24 @@ double return_highest(double array[], int len) {
 int main(void) {
 	int response_times[ARR_MAX];
 	char input_buffer[ARR_MAX];
-	int num_entries;
+	int num_entries = 0;
 
-	for (num_entries = 0; num_entries < ARR_MAX; ++num_entries) {
+	for (int i = 0; i < ARR_MAX; ++i) {
 		printf("Enter a number: ");
 		fgets(input_buffer, ARR_MAX, stdin);
 		if (strcasecmp(input_buffer, "done\n") == 0) {
 			break;
 		}
-		else {
+		else if (atoi(input_buffer) != 0) {
 			response_times[num_entries] = atoi(input_buffer);
+			++num_entries;
 		}
 	}
 
+	printf("Numbers: ");
+	for (int i = 0; i < num_entries; ++i) {
+		printf("%i ", response_times[i]);
+	}
 
+	return 0;
 }
