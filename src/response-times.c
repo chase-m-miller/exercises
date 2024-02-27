@@ -73,5 +73,10 @@ int main(void) {
 	}
 	printf("\n");
 
+	printf("The average response time is %.2fms.\n", calculate_mean(response_times, num_entries));
+	printf("The minimum is %.0fms.\n", return_lowest(response_times, num_entries));
+	printf("The maximum is %.0fms.\n", return_highest(response_times, num_entries));
+	printf("The standard deviation is %.2fms.\n", calculate_std_dev(response_times, num_entries));
+
 	return 0;
 }
