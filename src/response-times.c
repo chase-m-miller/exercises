@@ -38,6 +38,17 @@ double return_lowest(double array[], int len) {
 	return lowest;
 }
 
+double return_highest(double array[], int len) {
+	double highest = array[0];
+
+	for (int i = 0; i < len; ++i) {
+		if (highest < array[i]) {
+			highest = array[i];
+		}
+	}
+
+	return highest;
+}
 
 int main(void) {
 	int response_times[ARR_MAX];
