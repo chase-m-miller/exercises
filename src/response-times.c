@@ -51,7 +51,7 @@ double return_highest(double array[], int len) {
 }
 
 int main(void) {
-	int response_times[ARR_MAX];
+	double response_times[ARR_MAX];
 	char input_buffer[ARR_MAX];
 	int num_entries = 0;
 
@@ -69,7 +69,7 @@ int main(void) {
 
 	printf("Numbers: ");
 	for (int i = 0; i < num_entries; ++i) {
-		printf("%i ", response_times[i]);
+		printf("%.0f ", response_times[i]);
 	}
 	printf("\n");
 
