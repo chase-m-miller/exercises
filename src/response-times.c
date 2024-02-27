@@ -5,26 +5,39 @@
 
 #define ARR_MAX 256
 
-double calculate_mean(double response_times[], int num_entries) {
+double calculate_mean(double array[], int len) {
 	double total = 0;
 
-	for (int i = 0; i < num_entries; ++i) {
-		total += response_times[i];
+	for (int i = 0; i < len; ++i) {
+		total += array[i];
 	}
 
-	return total / num_entries;
+	return total / len;
 }
 
-double calculate_std_dev(double response_times[], int num_entries) {
-	double mean = calculate_mean(response_times, num_entries);
-	double diffs_from_mean_squared[num_entries];
+double calculate_std_dev(double array[], int len) {
+	double mean = calculate_mean(array, len);
+	double diffs_from_mean_squared[len];
 
-	for (int i = 0; i < num_entries; ++i) {
-		diffs_from_mean_squared[i] = (response_times[i] - mean) * (response_times[i] - mean);
+	for (int i = 0; i < len; ++i) {
+		diffs_from_mean_squared[i] = (array[i] - mean) * (array[i] - mean);
 	}
 
-	return sqrt(calculate_mean(diffs_from_mean_squared, num_entries));
+	return sqrt(calculate_mean(diffs_from_mean_squared, len));
 }
+
+double return_lowest(double array[], int len) {
+	double lowest = array[0];
+
+	for (int i = 0; i < len; ++i) {
+		if (lowest > array[i]) {
+			lowest = array[i];
+		}
+	}
+
+	return lowest;
+}
+
 
 int main(void) {
 	int response_times[ARR_MAX];
