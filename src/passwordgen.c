@@ -19,4 +19,16 @@ int main(void) {
 	for (int i = 0; i < 10; ++i) {
 		numbers[i] = i + '0';
 	}
+
+	printf("How long should the password be? ");
+	fgets(input_buffer, MAXLINE, stdin);
+	pass_len = atoi(input_buffer);
+
+	printf("How many special characters? ");
+	fgets(input_buffer, MAXLINE, stdin);
+	special_chars = atoi(input_buffer);
+
+	printf("How many numbers? ");
+	fgets(input_buffer, MAXLINE, stdin);
+	nums = atoi(input_buffer);
 }
