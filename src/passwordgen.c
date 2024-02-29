@@ -27,17 +27,16 @@ int main(void) {
 	fgets(input_buffer, MAXLINE, stdin);
 	nums = atoi(input_buffer);
 
-	char *password = malloc(sizeof(*password) * pass_len + 1);
+	char password[pass_len];
 	srand(time(NULL));
 	passgen(password, pass_len, special_chars, nums);
 
 	printf("Password: %s\n", password);
 
-	free(password);
 	return 0;
 }
 
-void passgen(char *password, int pass_len, int special_chars, int nums) {
+void passgen(char password[], int pass_len, int special_chars, int nums) {
 	char alphabet[26];
 	char numbers[10];
 	char symbols[] = {'!', '@', '#', '$'};
@@ -55,6 +54,7 @@ void passgen(char *password, int pass_len, int special_chars, int nums) {
 	}
 	password[pass_len] = '\0';
 
+	printf("Before first loop\n");
 	int nums_inserted = 0;
 	while (nums_inserted < nums) {
 		index = rand() % pass_len;
@@ -64,6 +64,7 @@ void passgen(char *password, int pass_len, int special_chars, int nums) {
 		}
 	}
 
+	printf("Before second loop\n");
 	int symbols_inserted = 0;
 	while (symbols_inserted < special_chars) {
 		index = rand() % pass_len;
@@ -73,5 +74,6 @@ void passgen(char *password, int pass_len, int special_chars, int nums) {
 		}
 	}
 
+	printf("After second loop\n");
 	return;
 }
