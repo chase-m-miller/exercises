@@ -13,8 +13,6 @@ int main(void) {
 	int special_chars;
 	int nums;
 
-
-
 	printf("How long should the password be? ");
 	fgets(input_buffer, MAXLINE, stdin);
 	pass_len = atoi(input_buffer);
@@ -54,26 +52,23 @@ void passgen(char password[], int pass_len, int special_chars, int nums) {
 	}
 	password[pass_len] = '\0';
 
-	printf("Before first loop\n");
 	int nums_inserted = 0;
 	while (nums_inserted < nums) {
 		index = rand() % pass_len;
 		if (password[index] < '0' || password[index] > '9') {
-			password[index] = alphabet[rand() % 26];
+			password[index] = numbers[rand() % 10];
 			++nums_inserted;
 		}
 	}
 
-	printf("Before second loop\n");
 	int symbols_inserted = 0;
 	while (symbols_inserted < special_chars) {
 		index = rand() % pass_len;
-		if (strchr(symbols, password[index]) == NULL && strchr(numbers, password[index]) == NULL) {
+		if ((password[index] < '0' || password[index] > '9') && password[index] != '$' && password[index] != '!' && password[index] != '@' && password[index] != '#') {
 			password[index] = symbols[rand() % 4];
 			++symbols_inserted;
 		}
 	}
 
-	printf("After second loop\n");
 	return;
 }
