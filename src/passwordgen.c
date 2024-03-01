@@ -48,7 +48,7 @@ void passgen(char password[], int pass_len, int special_chars, int nums) {
 	}
 
 	for (int i = 0; i < pass_len; ++i) {
-		password[i] = alphabet[rand() % 26];
+		password[i] = alphabet[rand() % (sizeof(alphabet) / sizeof(alphabet[0]))];
 	}
 	password[pass_len] = '\0';
 
@@ -56,7 +56,7 @@ void passgen(char password[], int pass_len, int special_chars, int nums) {
 	while (nums_inserted < nums) {
 		index = rand() % pass_len;
 		if (password[index] < '0' || password[index] > '9') {
-			password[index] = numbers[rand() % 10];
+			password[index] = numbers[rand() % (sizeof(numbers) / sizeof(numbers[0]))];
 			++nums_inserted;
 		}
 	}
@@ -65,7 +65,7 @@ void passgen(char password[], int pass_len, int special_chars, int nums) {
 	while (symbols_inserted < special_chars) {
 		index = rand() % pass_len;
 		if ((password[index] < '0' || password[index] > '9') && password[index] != '$' && password[index] != '!' && password[index] != '@' && password[index] != '#') {
-			password[index] = symbols[rand() % 4];
+			password[index] = symbols[rand() % (sizeof(symbols) / sizeof(symbols[0]))];
 			++symbols_inserted;
 		}
 	}
