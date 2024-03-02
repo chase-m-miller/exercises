@@ -20,5 +20,18 @@ int main(void) {
 		token = strtok(NULL, delimiter);
 	}
 
+	int even_index = 0;
+	for (int i = 0; nums[i]; ++i) {
+		if (nums[i] % 2 == 0) {
+			even_nums[even_index++] = nums[i];
+		}
+	}
+
+	printf("The even numbers are: ");
+	for (int i = 0; even_nums[i]; ++i) {
+		printf("%i ", even_nums[i]);
+	}
+	printf("\n");
+
 	return 0;
 }
