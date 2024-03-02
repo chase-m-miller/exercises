@@ -37,7 +37,7 @@ int main(void) {
 void passgen(char password[], int pass_len, int special_chars, int nums) {
 	char alphabet[26];
 	char numbers[10];
-	char symbols[] = {'!', '@', '#', '$'};
+	const char symbols[] = "!@#$";
 	int index;
 
 	for (int i = 0; i < 26; ++i) {
@@ -64,8 +64,8 @@ void passgen(char password[], int pass_len, int special_chars, int nums) {
 	int symbols_inserted = 0;
 	while (symbols_inserted < special_chars) {
 		index = rand() % pass_len;
-		if ((password[index] < '0' || password[index] > '9') && password[index] != '$' && password[index] != '!' && password[index] != '@' && password[index] != '#') {
-			password[index] = symbols[rand() % (sizeof(symbols) / sizeof(symbols[0]))];
+		if ((password[index] < '0' || password[index] > '9') && strchr(symbols, password[index]) == NULL) {
+			password[index] = symbols[rand() % (sizeof(symbols) / sizeof(symbols[0]) - 1)];
 			++symbols_inserted;
 		}
 	}
