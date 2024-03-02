@@ -2,16 +2,17 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define MAXLINE 128
+
 int main(void) {
-	char string[] = "1 2 3 4 5 6 7 8 9";
+	char input[MAXLINE];
+	int nums[MAXLINE];
+	int even_nums[MAXLINE];
 	const char delimiter[] = " ";
 	char *token;
 
-	token = strtok(string, delimiter);
-	while (token) {
-		printf("%c\n", *token);
-		token = strtok(NULL, delimiter);
-	}
+	printf("Input numbers seperated by spaces: ");
+	fgets(input, MAXLINE, stdin);
 
 	return 0;
 }
