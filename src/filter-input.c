@@ -14,5 +14,11 @@ int main(void) {
 	printf("Input numbers seperated by spaces: ");
 	fgets(input, MAXLINE, stdin);
 
+	token = strtok(input, delimiter);
+	for (int i = 0; token; ++i) {
+		nums[i] = atoi(token);
+		token = strtok(NULL, delimiter);
+	}
+
 	return 0;
 }
