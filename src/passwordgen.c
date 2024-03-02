@@ -39,7 +39,7 @@ int main(void) {
 	return 0;
 }
 
-void passgen(char password[], int pass_len, int special_chars, int nums) {
+void passgen(char *password, int pass_len, int special_chars, int nums) {
 	char alphabet[26];
 	char numbers[10];
 	const char symbols[] = "!@#$";
