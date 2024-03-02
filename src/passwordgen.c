@@ -25,6 +25,11 @@ int main(void) {
 	fgets(input_buffer, MAXLINE, stdin);
 	nums = atoi(input_buffer);
 
+	if (special_chars + nums > pass_len) {
+		printf("Cannot fit this many symbols and numbers in a password of specified length.\n");
+		return 1;
+	}
+
 	char password[pass_len];
 	srand(time(NULL));
 	passgen(password, pass_len, special_chars, nums);
