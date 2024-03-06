@@ -20,3 +20,9 @@ struct Employee {
 	char* position;
 	char* seperation_date;
 };
+
+struct Employee_Table {
+	struct Employee** employees;
+	unsigned int size;
+	unsigned int count;
+};
