@@ -12,3 +12,11 @@ unsigned int hash_function(char* str) {
 
 	return hash_value % CAPACITY;
 }
+
+struct Employee {
+	unsigned int key;
+	char* first_name;
+	char* last_name;
+	char* position;
+	char* seperation_date;
+};
