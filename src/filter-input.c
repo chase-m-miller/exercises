@@ -31,7 +31,7 @@ int main(void) {
 	for (int i = 0; even_nums[i]; ++i) {
 		printf("%i ", even_nums[i]);
 	}
-	printf("\n");
+	printf("\b.\n");
 
 	return 0;
 }
