@@ -26,3 +26,17 @@ struct Employee_Table {
 	unsigned int size;
 	unsigned int count;
 };
+
+int main(void) {
+	struct Employee test;
+	test.first_name = "Chase";
+	test.last_name = "Miller";
+	test.position = "Software Developer";
+	test.seperation_date = NULL;
+
+	test.key = hash_function(test.last_name);
+
+	printf("%i\n", test.key);
+
+	return 0;
+}
