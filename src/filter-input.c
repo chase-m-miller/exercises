@@ -14,11 +14,14 @@ int main(void) {
 	printf("Input numbers seperated by spaces: ");
 	fgets(input, MAXLINE, stdin);
 
-	printf("%s\n", input);
+	// This didn't fix the problem but there were less errors,
+	// there's still something I'm not understanding about strtok.
+	char string[strlen(input)];
+	strcpy(string, input);
 
 	// The error is occurring somewhere in this code block.
 	// I am most likely messing something up with the strtok function.
-	token = strtok(input, delimiter);
+	token = strtok(string, delimiter);
 	for (int i = 0; token != NULL; ++i) {
 		nums[i] = atoi(token);
 		token = strtok(NULL, delimiter);
