@@ -11,7 +11,7 @@ int main(void) {
 	const char delimiter[] = ",";
 	char *token;
 
-	printf("Input numbers seperated by spaces: ");
+	printf("Input numbers seperated by commas: ");
 	fgets(input, MAXLINE, stdin);
 
 	// This didn't fix the problem but there were less errors,
@@ -22,10 +22,10 @@ int main(void) {
 	// The error is occurring somewhere in this code block.
 	// I am most likely messing something up with the strtok function.
 	token = strtok(string, delimiter);
-	for (int i = 0; token != NULL; ++i) {
+	for (int i = 0; token; ++i) {
 		nums[i] = atoi(token);
+		printf("Iteration %i: %s\n", i + 1, token);
 		token = strtok(NULL, delimiter);
-		printf("Iteration %i: %s\n", i, token);
 	}
 
 	for (int i = 0; nums[i]; ++i) {
