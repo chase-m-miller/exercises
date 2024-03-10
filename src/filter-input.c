@@ -25,11 +25,13 @@ int main(void) {
 	for (int i = 0; token != NULL; ++i) {
 		nums[i] = atoi(token);
 		token = strtok(NULL, delimiter);
+		printf("Iteration %i: %s\n", i, token);
 	}
 
-	for (int i = 0; nums[i] != 0; ++i) {
+	for (int i = 0; nums[i]; ++i) {
 		printf("%i ", nums[i]);
 	}
+	printf("\n");
 
 	int even_index = 0;
 	for (int i = 0; nums[i]; ++i) {
