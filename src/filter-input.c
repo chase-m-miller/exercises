@@ -14,14 +14,9 @@ int main(void) {
 	printf("Input numbers seperated by commas: ");
 	fgets(input, MAXLINE, stdin);
 
-	// This didn't fix the problem but there were less errors,
-	// there's still something I'm not understanding about strtok.
-	char string[strlen(input)];
-	strcpy(string, input);
-
 	// The error is occurring somewhere in this code block.
 	// I am most likely messing something up with the strtok function.
-	token = strtok(string, delimiter);
+	token = strtok(input, delimiter);
 	for (int i = 0; token; ++i) {
 		nums[i] = atoi(token);
 		printf("Iteration %i: %s\n", i + 1, token);
