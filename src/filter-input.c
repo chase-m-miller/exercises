@@ -37,7 +37,7 @@ int main(void) {
 	}
 
 	printf("The even numbers are: ");
-	for (int i = 0; even_nums[i] != 0; ++i) {
+	for (int i = 0; i < even_index; ++i) {
 		printf("%i ", even_nums[i]);
 	}
 	printf("\b.\n");
