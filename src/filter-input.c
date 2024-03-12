@@ -25,22 +25,21 @@ int main(void) {
 	fgets(input, MAXLINE, stdin);
 
 	token = strtok(input, delimiter);
-	int int_count;
-	for (int_count = 0; token != NULL; ++int_count) {
-		nums[int_count] = atoi(token);
-		printf("Iteration %i: %s\n", int_count + 1, token);
+	for (int i = 0; token != NULL; ++i) {
+		nums[i] = atoi(token);
+		printf("Iteration %i: %s\n", i + 1, token);
 		token = strtok(NULL, delimiter);
 	}
 
-	int even_count = 0;
-	for (int i = 0; i < int_count; ++i) {
+	int even_index = 0;
+	for (int i = 0; nums[i] != 0; ++i) {
 		if (nums[i] % 2 == 0) {
-			even_nums[even_count++] = nums[i];
+			even_nums[even_index++] = nums[i];
 		}
 	}
 
 	printf("The even numbers are: ");
-	for (int i = 0; i < even_count; ++i) {
+	for (int i = 0; even_nums[i] != 0; ++i) {
 		printf("%i ", even_nums[i]);
 	}
 	printf("\b.\n");
