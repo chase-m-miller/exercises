@@ -14,30 +14,23 @@ int main(void) {
 	printf("Input numbers seperated by commas: ");
 	fgets(input, MAXLINE, stdin);
 
-	// The error is occurring somewhere in this code block.
-	// I am most likely messing something up with the strtok function.
 	token = strtok(input, delimiter);
-	int count;
-	for (count = 0; token != NULL; ++count) {
-		nums[count] = atoi(token);
-		printf("Iteration %i: %s\n", count + 1, token);
+	int int_count;
+	for (int_count = 0; token != NULL; ++int_count) {
+		nums[int_count] = atoi(token);
+		printf("Iteration %i: %s\n", int_count + 1, token);
 		token = strtok(NULL, delimiter);
 	}
 
-	for (int i = 0; i < count; ++i) {
-		printf("%i ", nums[i]);
-	}
-	printf("\n");
-
-	int even_index = 0;
-	for (int i = 0; i < count; ++i) {
+	int even_count = 0;
+	for (int i = 0; i < int_count; ++i) {
 		if (nums[i] % 2 == 0) {
-			even_nums[even_index++] = nums[i];
+			even_nums[even_count++] = nums[i];
 		}
 	}
 
 	printf("The even numbers are: ");
-	for (int i = 0; i < even_index; ++i) {
+	for (int i = 0; i < even_count; ++i) {
 		printf("%i ", even_nums[i]);
 	}
 	printf("\b.\n");
