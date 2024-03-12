@@ -4,9 +4,9 @@
 
 #define MAXLINE 128
 
-void init_int_array(int array[], int size) {
+void init_int_array(int array[], int size, int value) {
 	for (int i = 0; i < size; ++i) {
-		array[i] = 0;
+		array[i] = value;
 	}
 	return;
 }
@@ -17,6 +17,9 @@ int main(void) {
 	int even_nums[MAXLINE];
 	const char delimiter[] = ",";
 	char *token;
+
+	init_int_array(nums, MAXLINE, 0);
+	init_int_array(even_nums, MAXLINE, 0);
 
 	printf("Input numbers seperated by commas: ");
 	fgets(input, MAXLINE, stdin);
