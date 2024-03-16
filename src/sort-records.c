@@ -24,7 +24,7 @@ int main(void) {
 	}
 
 	printf("Performing query...\n");
-	if ((err = sqlite3_prepare_v2(db, "select * from people", -1, &stmt, NULL)) != SQLITE_OK) {
+	if ((err = sqlite3_prepare_v2(db, "select * from people;", -1, &stmt, NULL)) != SQLITE_OK) {
 		printf("sqlite3_prepare_v2 failed, returned %i\n", err);
 		return 2;
 	}
