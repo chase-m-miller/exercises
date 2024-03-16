@@ -12,11 +12,10 @@ struct Employee {
 };
 
 int main(void) {
-	struct Employee employee_list[ARR_MAX];
 	sqlite3 *db;
 	sqlite3_stmt *stmt;
 
-	sqlite3_open("employees.db", &db);
+	sqlite3_open("file:/home/Projects/exercises/src/employees.db", &db);
 
 	if (db == NULL) {
 		printf("Failed to open DB\n");
@@ -24,7 +23,7 @@ int main(void) {
 	}
 
 	printf("Performing query...\n");
-	sqlite3_prepare_v2(db, "select * from people", -1, &stmt, NULL);
+	sqlite3_prepare_v2(db, "select * from people;", -1, &stmt, NULL);
 
 	printf("Got results:\n");
 	while (sqlite3_step(stmt) != SQLITE_DONE) {
@@ -53,6 +52,5 @@ int main(void) {
 
 	sqlite3_close(db);
 
-	getc(stdin);
 	return 0;
 }
