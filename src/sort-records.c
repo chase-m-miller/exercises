@@ -14,6 +14,7 @@ struct Employee {
 int main(void) {
 	sqlite3 *db;
 	sqlite3_stmt *stmt;
+	int err;
 
 	sqlite3_open("file:/home/Projects/exercises/src/employees.db", &db);
 
@@ -23,7 +24,10 @@ int main(void) {
 	}
 
 	printf("Performing query...\n");
-	sqlite3_prepare_v2(db, "select * from people;", -1, &stmt, NULL);
+	if ((err = sqlite3_prepare_v2(db, "select * from people", -1, &stmt, NULL)) != SQLITE_OK) {
+		printf("sqlite3_prepare_v2 failed, returned %i\n", err);
+		return 2;
+	}
 
 	printf("Got results:\n");
 	while (sqlite3_step(stmt) != SQLITE_DONE) {
@@ -32,20 +36,20 @@ int main(void) {
 
 		for (i = 0; i < num_cols; ++i) {
 			switch (sqlite3_column_type(stmt, i)) {
-				case (SQLITE3_TEXT):
-					printf("%s, ", sqlite3_column_text(stmt, i));
-					break;
-				case (SQLITE_INTEGER):
-					printf("%d, ", sqlite3_column_int(stmt, i));
-					break;
-				case (SQLITE_FLOAT):
-					printf("%g, ", sqlite3_column_double(stmt, i));
-					break;
-				default:
-					break;
+			case (SQLITE3_TEXT):
+				printf("%s, ", sqlite3_column_text(stmt, i));
+				break;
+			case (SQLITE_INTEGER):
+				printf("%d, ", sqlite3_column_int(stmt, i));
+				break;
+			case (SQLITE_FLOAT):
+				printf("%g, ", sqlite3_column_double(stmt, i));
+				break;
+			default:
+				break;
 			}
 		}
-		printf("\n");
+		printf("newline\n");
 	}
 
 	sqlite3_finalize(stmt);
