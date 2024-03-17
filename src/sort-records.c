@@ -16,10 +16,10 @@ int main(void) {
 	sqlite3_stmt *stmt;
 	int ret;
 
-	ret = sqlite3_open("file:/home/chasemiller/Projects/exercises/src/employees.db", &db);
+	ret = sqlite3_open("file:/employees.db", &db);
 
 	if (ret != SQLITE_OK) {
-		printf("Failed to open DB\n");
+		printf("Failed to open DB, Error code: %i\n", ret);
 		return 1;
 	}
 
