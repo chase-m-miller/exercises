@@ -14,18 +14,19 @@ struct Employee {
 int main(void) {
 	sqlite3 *db;
 	sqlite3_stmt *stmt;
-	int err;
+	int ret;
 
-	sqlite3_open("file:/home/chasemiller/Projects/exercises/src/employees.db", &db);
+	ret = sqlite3_open("file:/home/chasemiller/Projects/exercises/src/employees.db", &db);
 
-	if (db == NULL) {
+	if (ret != SQLITE_OK) {
 		printf("Failed to open DB\n");
 		return 1;
 	}
 
 	printf("Performing query...\n");
-	if ((err = sqlite3_prepare_v2(db, "SELECT * FROM PEOPLE;", -1, &stmt, NULL)) != SQLITE_OK) {
-		printf("sqlite3_prepare_v2 failed, returned %i\n", err);
+	ret = sqlite3_prepare_v2(db, "SELECT * FROM people;", -1, &stmt, 0);
+	if (ret != SQLITE_OK) {
+		printf("sqlite3_prepare_v2 failed, returned %i\n", ret);
 		return 2;
 	}
 
