@@ -14,7 +14,6 @@ struct Employee {
 int main(void) {
 	sqlite3 *db;
 	sqlite3_stmt *stmt;
-	const char command[] = "SELECT * FROM PEOPLE;";
 	int err;
 
 	sqlite3_open("file:/home/Projects/exercises/src/employees.db", &db);
@@ -25,7 +24,7 @@ int main(void) {
 	}
 
 	printf("Performing query...\n");
-	if ((err = sqlite3_prepare_v2(db, command, -1, &stmt, NULL)) != SQLITE_OK) {
+	if ((err = sqlite3_prepare_v2(db, "SELECT * FROM PEOPLE;", -1, &stmt, NULL)) != SQLITE_OK) {
 		printf("sqlite3_prepare_v2 failed, returned %i\n", err);
 		return 2;
 	}
