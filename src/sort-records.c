@@ -16,7 +16,7 @@ int main(void) {
 	sqlite3_stmt *stmt;
 	int err;
 
-	sqlite3_open("file:/home/Projects/exercises/src/employees.db", &db);
+	sqlite3_open("file:employees.db", &db);
 
 	if (db == NULL) {
 		printf("Failed to open DB\n");
