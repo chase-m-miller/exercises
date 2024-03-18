@@ -34,6 +34,7 @@ int main(void) {
 	printf("Got results:\n");
 	while (sqlite3_step(stmt) != SQLITE_DONE) {
 		int i;
+		int num_rows = 0;
 		int num_cols = sqlite3_column_count(stmt);
 
 		for (i = 0; i < num_cols; ++i) {
@@ -46,6 +47,7 @@ int main(void) {
 			}
 		}
 		printf("\n");
+		++num_rows;
 	}
 
 	sqlite3_finalize(stmt);
