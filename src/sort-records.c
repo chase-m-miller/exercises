@@ -41,12 +41,6 @@ int main(void) {
 			case (SQLITE3_TEXT):
 				printf("%s, ", sqlite3_column_text(stmt, i));
 				break;
-			case (SQLITE_INTEGER):
-				printf("%d, ", sqlite3_column_int(stmt, i));
-				break;
-			case (SQLITE_FLOAT):
-				printf("%g, ", sqlite3_column_double(stmt, i));
-				break;
 			default:
 				break;
 			}
