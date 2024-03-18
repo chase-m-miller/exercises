@@ -27,6 +27,7 @@ int main(void) {
 	ret = sqlite3_prepare_v2(db, "SELECT * FROM people;", -1, &stmt, 0);
 	if (ret != SQLITE_OK) {
 		printf("sqlite3_prepare_v2 failed, returned %i\n", ret);
+		sqlite3_close(db);
 		return 2;
 	}
 
