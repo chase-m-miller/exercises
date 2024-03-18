@@ -16,6 +16,8 @@ int main(void) {
 	sqlite3_stmt *stmt;
 	int ret;
 
+	struct Employee employees[ARR_MAX];
+
 	ret = sqlite3_open("/home/chasemiller/Projects/exercises/db/employees.db", &db);
 
 	if (ret != SQLITE_OK) {
