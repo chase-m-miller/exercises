@@ -45,7 +45,7 @@ int main(void) {
 				break;
 			}
 		}
-		printf("newline\n");
+		printf("\n");
 	}
 
 	sqlite3_finalize(stmt);
