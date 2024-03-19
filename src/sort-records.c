@@ -61,13 +61,6 @@ int main(void) {
 					}
 					break;
 			}
-			// switch (sqlite3_column_type(stmt, i)) {
-			// case (SQLITE3_TEXT):
-			// 	printf("%s, ", sqlite3_column_text(stmt, i));
-			// 	break;
-			// default:
-			// 	break;
-			// }
 		}
 		printf("\n");
 		++num_rows;
