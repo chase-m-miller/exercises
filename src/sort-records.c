@@ -1,14 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sqlite3.h>
+#include <string.h>
 
 #define ARR_MAX 256
 
 struct Employee {
-	char *first_name;
-	char *last_name;
-	char *position;
-	char *seperation_date;
+	char first_name[ARR_MAX];
+	char last_name[ARR_MAX];
+	char position[ARR_MAX];
+	char seperation_date[ARR_MAX];
 };
 
 int main(void) {
@@ -40,13 +41,20 @@ int main(void) {
 		int num_cols = sqlite3_column_count(stmt);
 
 		for (i = 0; i < num_cols; ++i) {
-			switch (sqlite3_column_type(stmt, i)) {
-			case (SQLITE3_TEXT):
-				printf("%s, ", sqlite3_column_text(stmt, i));
-				break;
-			default:
-				break;
+			switch (i) {
+				case (0):
+				strcpy(employees[num_rows].first_name, sqlite3_column_text(stmt, i));
+				case (1):
+				case (2):
+				case (3):
 			}
+			// switch (sqlite3_column_type(stmt, i)) {
+			// case (SQLITE3_TEXT):
+			// 	printf("%s, ", sqlite3_column_text(stmt, i));
+			// 	break;
+			// default:
+			// 	break;
+			// }
 		}
 		printf("\n");
 		++num_rows;
