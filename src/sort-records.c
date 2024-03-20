@@ -55,6 +55,9 @@ int main(void) {
 					if (sqlite3_column_text(stmt, i) != NULL) {
 						strcpy(employees[num_rows].seperation_date, sqlite3_column_text(stmt, i));
 					}
+					else {
+						employees[num_rows].seperation_date[0] = 0;
+					}
 					break;
 			}
 		}
