@@ -44,19 +44,24 @@ int main(void) {
 			switch (i) {
 				case (0):
 					strcpy(employees[num_rows].first_name, sqlite3_column_text(stmt, i));
+					printf("%s\n", employees[num_rows].first_name);
 					break;
 				case (1):
 					strcpy(employees[num_rows].last_name, sqlite3_column_text(stmt, i));
+					printf("%s\n", employees[num_rows].last_name);
 					break;
 				case (2):
 					strcpy(employees[num_rows].position, sqlite3_column_text(stmt, i));
+					printf("%s\n", employees[num_rows].position);
 					break;
 				case (3):
 					if (sqlite3_column_text(stmt, i) != NULL) {
 						strcpy(employees[num_rows].seperation_date, sqlite3_column_text(stmt, i));
+						printf("%s\n", employees[num_rows].seperation_date);
 					}
 					else {
 						employees[num_rows].seperation_date[0] = 0;
+						printf("NULL\n");
 					}
 					break;
 			}
